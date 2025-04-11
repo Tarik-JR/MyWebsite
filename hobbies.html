@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobbies | Modern</title>
+    <link rel="stylesheet" href="sc.css">
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Modern Overrides (add to sc.css) */
+        :root {
+            --primary: #2563eb;  /* Vibrant blue */
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --text: #1f2937;
+            --bg: #f9fafb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Modern Menu - Smaller version */
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            font-size: 1.2rem;  /* Smaller icon */
+            z-index: 1000;
+            background: var(--primary);
+            color: white;
+            width: 36px;        /* Reduced size */
+            height: 36px;      /* Reduced size */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+        }
+        
+        .menu-btn:hover {
+            transform: scale(1.05); /* More subtle hover effect */
+        }
+        
+        .sidebar {
+            background: white;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
+            width: 0;
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            transition: 0.3s;
+            z-index: 999;
+            padding-top: 60px;
+        }
+        
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: var(--text);
+            display: block;
+            transition: 0.2s;
+        }
+        
+        .sidebar a:hover {
+            background-color: #f0f4f8;
+        }
+        
+        /* Modern Sections */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: white;  /* Added white background */
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);  /* Changed from gradient to solid color */
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            color: var(--text);
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+        
+        .hobby-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .hobby-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hobby-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .book {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .book h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rating {
+            color: #f59e0b; /* Amber color for stars */
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Modern Lists */
+        ul {
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .book-list {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 1.5rem;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Hamburger Menu -->
+    <button class="menu-btn animate__animated animate__fadeIn" onclick="toggleMenu()">☰</button>
+    <div class="sidebar" id="sidebar">
+    <a href="sc.html">🏠 Home</a>
+    <a href="hobbies.html">🎯 Hobbies</a>
+    <a href="guestBook.html">📖 Guestbook</a>
+    <a href="books.html">📚 Books</a>
+    <a href="projects.html">🎓 My Projects</a>
+  </div>
+
+    <!-- Modern Content -->
+    <div class="container">
+        <header class="animate__animated animate__fadeInDown">
+            <h1>My Passions</h1>
+            <p>Beyond the screen — what fuels my curiosity.</p>
+        </header>
+
+        <!-- Books Section -->
+        <section class="hobby-section animate__animated animate__fadeInUp">
+            <h2><span>📚</span> Intellectual Escapes</h2>
+            <div class="book-list">
+                <div class="book">
+                    <h3>Sapiens: A Brief History of Humankind</h3>
+                    <p>Yuval Noah Harari's groundbreaking exploration of human evolution.</p>
+                    <div class="rating">★★★★☆</div>
+                </div>
+                <div class="book">
+                    <h3>Deep Work: Rules for Focused Success</h3>
+                    <p>Cal Newport's manifesto for productivity in a distracted world.</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="book">
+                    <h3>The Alchemist</h3>
+                    <p>Paulo Coelho's timeless tale about pursuing personal legends.</p>
+                    <div class="rating">★★★☆☆</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Religion Section -->
+        <section class="hobby-section animate__animated animate__fadeInUp animate__delay-1s">
+            <h2><span>🕊️</span> Spiritual Explorations</h2>
+            <p>Comparative religion and philosophy studies:</p>
+            <ul>
+                <li><strong>Buddhism:</strong> Practicing mindfulness meditation</li>
+                <li><strong>Stoicism:</strong> Applying Marcus Aurelius' wisdom daily</li>
+                <li><strong>Interfaith Dialogues:</strong> Hosting monthly discussion groups</li>
+            </ul>
+        </section>
+
+        <!-- Fitness Section -->
+        <section class="hobby-section animate__animated animate__fadeInUp animate__delay-2s">
+            <h2><span>💪</span> Physical Mastery</h2>
+            <p>2024 Fitness Regimen:</p>
+            <ul>
+                <li><strong>Strength Training:</strong> 5x/week (Kettlebell + Calisthenics)</li>
+                <li><strong>Cardio:</strong> 10K runs every Sunday</li>
+                <li><strong>Nutrition:</strong> Macro-tracking with MyFitnessPal</li>
+                <li><strong>Recovery:</strong> Yoga + Cold showers</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.style.width = sidebar.style.width === "220px" ? "0" : "220px";  /* Narrower sidebar */
+        }
+        
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuBtn = document.querySelector('.menu-btn');
+            if (!sidebar.contains(event.target) && event.target !== menuBtn) {
+                sidebar.style.width = '0';
+            }
+        });
+    </script>
+</body>
+</html>

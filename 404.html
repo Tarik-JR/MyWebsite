@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - you that inerrested in knowing me?</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #f0f8ff;  /* Light blue background */
+            color: #0066cc;       /* Deep blue text */
+            text-align: center;
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .screen {
+            border: 8px solid #0066cc;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 0 15px rgba(0, 102, 204, 0.2);
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #0066cc;
+        }
+        .floppy {
+            font-size: 5rem;
+            margin: 1rem;
+            color: #0066cc;
+        }
+        button {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-family: inherit;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #004d99;
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="screen">
+        <div class="floppy">💾</div>
+        <h1>404</h1>
+        <h2>Deep digging haah? <span class="blink">_</span></h2>
+        <p>ERROR: PAGE NOT FOUND.</p>
+        <p>The server is confused why you asked for this.<br>Maybe you should:</p>
+        <ul style="list-style: none; padding: 0;">
+            <li>1. Check the URL for typos(I doubt that).</li>
+            <li>2. Try contacting me for more details.</li>
+            <li>3. Pretend this never happened.</li>
+        </ul>
+        <button onclick="window.location.href='/'">RETURN TO SAFETY</button>
+        <p>> <a href="/">Alt+F4</a> | <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Panic</a> <</p>
+    </div>
+</body>
+</html>

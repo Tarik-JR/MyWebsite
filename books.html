@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendations | Your Name</title>
+    <link rel="stylesheet" href="sc.css">
+    <style>
+        /* Book-specific styles */
+        .books-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .books-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .book-cover {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .book-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #2563eb;
+        }
+        
+        .book-author {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .book-rating {
+            color: #f59e0b;
+            margin-bottom: 1rem;
+        }
+        
+        .book-review {
+            line-height: 1.6;
+            color: #4b5563;
+        }
+        
+        .category {
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing menu -->
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <div class="sidebar" id="sidebar">
+    <a href="sc.html">🏠 Home</a>
+    <a href="hobbies.html">🎯 Hobbies</a>
+    <a href="guestBook.html">📖 Guestbook</a>
+    <a href="books.html">📚 Books</a>
+    <a href="projects.html">🎓 My Projects</a>
+  </div>
+
+    <div class="books-container">
+        <div class="books-header">
+            <h1>My Book Recommendations</h1>
+            <p>Thoughts on books that shaped my thinking</p>
+        </div>
+        
+        <div class="category">
+            <h2>📚 Personal Development</h2>
+            <div class="books-grid">
+                <div class="book-card">
+                    <img src="images/48-laws.jpg" alt="48 Laws of Power" class="book-cover">
+                    <h3 class="book-title">The 48 Laws of Power</h3>
+                    <p class="book-author">by Robert Greene</p>
+                    <div class="book-rating">★★★★☆</div>
+                    <p class="book-review">
+                        A fascinating look at power dynamics throughout history. While some laws are 
+                        controversial, the historical examples provide valuable insights into human 
+                        behavior and social structures.
+                    </p>
+                </div>
+                
+                <div class="book-card">
+                    <img src="images/rich-dad.jpg" alt="Rich Dad Poor Dad" class="book-cover">
+                    <h3 class="book-title">Rich Dad Poor Dad</h3>
+                    <p class="book-author">by Robert Kiyosaki</p>
+                    <div class="book-rating">★★★☆☆</div>
+                    <p class="book-review">
+                        Changed my perspective on money and assets. The core message about financial 
+                        education is valuable, though some advice should be taken with caution.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h2>🔐 Technology & Security</h2>
+            <div class="books-grid">
+                <div class="book-card">
+                    <img src="images/cryptography.jpg" alt="Understanding Cryptography" class="book-cover">
+                    <h3 class="book-title">Understanding Cryptography</h3>
+                    <p class="book-author">by Christof Paar</p>
+                    <div class="book-rating">★★★★★</div>
+                    <p class="book-review">
+                        The best technical introduction to cryptography I've found. Excellent balance 
+                        between mathematical foundations and practical implementations. Essential for 
+                        anyone in cybersecurity.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h2>🧠 Psychology & Mindset</h2>
+            <div class="books-grid">
+                <div class="book-card">
+                    <img src="images/atomic-habits.jpg" alt="Atomic Habits" class="book-cover">
+                    <h3 class="book-title">Atomic Habits</h3>
+                    <p class="book-author">by James Clear</p>
+                    <div class="book-rating">★★★★★</div>
+                    <p class="book-review">
+                        Transformative approach to habit formation. The 1% improvement concept helped 
+                        me build better coding and fitness routines.
+                    </p>
+                </div>
+                
+                <div class="book-card">
+                    <img src="images/deep-work.jpg" alt="Deep Work" class="book-cover">
+                    <h3 class="book-title">Deep Work</h3>
+                    <p class="book-author">by Cal Newport</p>
+                    <div class="book-rating">★★★★☆</div>
+                    <p class="book-review">
+                        Convincing argument for focused work in our distracted world. I've implemented 
+                        "no-social media" hours that boosted my programming productivity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Your existing menu toggle script
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuBtn = document.querySelector('.menu-btn');
+            if (!sidebar.contains(event.target) && event.target !== menuBtn) {
+                sidebar.style.width = '0';
+            }
+        });
+    </script>
+</body>
+</html>

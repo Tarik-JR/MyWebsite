@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook | My Website</title>
+    <link rel="stylesheet" href="sc.css">
+    <style>
+        /* Guestbook Styles */
+        .guestbook-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .guestbook-form {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #1e40af;
+        }
+        
+        .entries-container {
+            margin-top: 2rem;
+        }
+        
+        .entry {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .entry-name {
+            font-weight: 600;
+            color: #1e40af;
+        }
+        
+        .entry-date {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .entry-message {
+            line-height: 1.6;
+        }
+        
+        .no-entries {
+            color: #6b7280;
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing menu -->
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <div class="sidebar" id="sidebar">
+    <a href="sc.html">🏠 Home</a>
+    <a href="hobbies.html">🎯 Hobbies</a>
+    <a href="guestBook.html">📖 Guestbook</a>
+    <a href="books.html">📚 Books</a>
+    <a href="projects.html">🎓 My Projects</a>
+  </div>
+
+    <div class="guestbook-container">
+        <h1>Sign My Guestbook</h1>
+        <p>Leave a message that will be saved in your browser!</p>
+        
+        <form class="guestbook-form" id="guestbookForm">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" required minlength="2" maxlength="50">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Your Message:</label>
+                <textarea id="message" required minlength="10" maxlength="500"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        
+        <div class="entries-container">
+            <h2>Messages</h2>
+            <div id="entriesList">
+                <!-- Entries will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load entries when page loads
+        document.addEventListener('DOMContentLoaded', loadEntries);
+        
+        // Form submission
+        document.getElementById('guestbookForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (name && message) {
+                addEntry(name, message);
+                document.getElementById('guestbookForm').reset();
+            }
+        });
+        
+        // Menu toggle function
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
+        }
+        
+        // Add new entry
+        function addEntry(name, message) {
+            const entries = getEntries();
+            const newEntry = {
+                id: Date.now(),
+                name: name,
+                message: message,
+                date: new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                })
+            };
+            
+            entries.unshift(newEntry); // Add to beginning
+            localStorage.setItem('guestbookEntries', JSON.stringify(entries));
+            loadEntries();
+        }
+        
+        // Load all entries
+        function loadEntries() {
+            const entries = getEntries();
+            const entriesList = document.getElementById('entriesList');
+            
+            if (entries.length === 0) {
+                entriesList.innerHTML = '<div class="no-entries">No messages yet. Be the first to sign!</div>';
+                return;
+            }
+            
+            entriesList.innerHTML = entries.map(entry => `
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-name">${entry.name}</span>
+                        <span class="entry-date">${entry.date}</span>
+                    </div>
+                    <div class="entry-message">${entry.message}</div>
+                </div>
+            `).join('');
+        }
+        
+        // Get entries from localStorage
+        function getEntries() {
+            return JSON.parse(localStorage.getItem('guestbookEntries')) || [];
+        }
+    </script>
+</body>
+</html>

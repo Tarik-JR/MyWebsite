@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>main Web Page</title>
+  <link rel="stylesheet" href="sc.css" />
+  <!-- Preload important resources -->
+  <link rel="preload" href="sc.css" as="style">
+</head>
+<body>
+   <div class="lang-switch fade-in delay-3">
+        <button onclick="switchLang('en')" aria-label="Switch to English">
+          <img src="images/UK.png" alt="English" loading="lazy"/>
+        </button>
+        <button onclick="switchLang('fr')" aria-label="Switch to French">
+          <img src="images/FR.png" alt="Français" loading="lazy"/>
+        </button>
+      </div>
+  <!-- Improved Accessible Menu -->
+  <button class="menu-btn" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
+
+  <!-- Enhanced Sidebar Menu -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+     <a href="sc.html">🏠 Home</a>
+    <a href="hobbies.html">🎯 Hobbies</a>
+    <a href="guestBook.html">📖 Guestbook</a>
+    <a href="books.html">📚 Books</a>
+    <a href="projects.html">🎓 My Projects</a>
+  </nav>
+
+  <header>
+    <div class="header-content">
+      <h1 class="fade-in">Hi, I'm Tarik Jabbour</h1>
+      <p class="fade-in delay-1">Computer Science Student & Tech Enthusiast</p>
+      <a href="projects.html" class="btn fade-in delay-2">View My Projects</a>
+
+      <div class="social-links fade-in delay-2">
+        <a href="https://github.com/Tarik-JR" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.instagram.com/tarek__jabbour/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/in/tarik-jabbour-098968285/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>I'm a passionate computer science student currently exploring <b>VIM</b> (though I'm not entirely sure why!). I believe the best way to learn is by doing, which led me to create this website - killing two birds with one stone!</p>
+        
+        <p>My primary interests lie in <b>cybersecurity</b> and <b>ethical hacking</b> (maybe that's the real reason I'm learning VIM - to look cool in terminals!). Beyond technology, I'm dedicated to fitness and recently completed an amazing body transformation you can check out in my hobbies section.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year">2025</span> Tarik Jabbour. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Improved language switching
+    const translations = {
+      en: {
+        title: "Tarik Jabbour | Computer Science Student",
+        greeting: "Hi, I'm Tarik Jabbour",
+        tagline: "Computer Science Student & Tech Enthusiast",
+        button: "View My Projects",
+        aboutTitle: "About Me",
+        aboutDesc1: "I'm a passionate computer science student currently exploring VIM (though I'm not entirely sure why!). I believe the best way to learn is by doing, which led me to create this website - killing two birds with one stone!",
+        aboutDesc2: "My primary interests lie in cybersecurity and ethical hacking (maybe that's the real reason I'm learning VIM - to look cool in terminals!). Beyond technology, I'm dedicated to fitness and recently completed an amazing body transformation you can check out in my hobbies section."
+      },
+      fr: {
+        title: "Tarik Jabbour | Étudiant en Informatique",
+        greeting: "Salut, je suis Tarik Jabbour",
+        tagline: "Étudiant en Informatique & Passionné de Technologie",
+        button: "Voir Mes Projets",
+        aboutTitle: "À propos de moi",
+        aboutDesc1: "Je suis un étudiant passionné d'informatique qui explore actuellement VIM (même si je ne suis pas tout à fait sûr pourquoi !). Je crois que la meilleure façon d'apprendre est de faire, ce qui m'a conduit à créer ce site web - faire d'une pierre deux coups !",
+        aboutDesc2: "Mes principaux centres d'intérêt sont la cybersécurité et le hacking éthique (peut-être que c'est la vraie raison pour laquelle j'apprends VIM - pour avoir l'air cool dans les terminaux !). Au-delà de la technologie, je me consacre au fitness et j'ai récemment terminé une transformation corporelle impressionnante que vous pouvez voir dans la section de mes loisirs."
+      }
+    };
+
+    function switchLang(lang) {
+      const t = translations[lang];
+      document.title = t.title;
+      document.querySelector("header h1").innerText = t.greeting;
+      document.querySelector("header p").innerText = t.tagline;
+      document.querySelector(".btn").innerText = t.button;
+      document.querySelector("#about h2").innerText = t.aboutTitle;
+      const aboutParagraphs = document.querySelectorAll("#about p");
+      aboutParagraphs[0].innerText = t.aboutDesc1;
+      aboutParagraphs[1].innerText = t.aboutDesc2;
+    }
+
+    // Improved menu toggle with click-outside detection
+    function toggleMenu() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
+    }
+
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const menuBtn = document.querySelector('.menu-btn');
+      if (!sidebar.contains(event.target) && event.target !== menuBtn) {
+        sidebar.style.width = '0';
+      }
+    });
+
+    // Update copyright year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

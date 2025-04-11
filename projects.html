@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+  <link rel="stylesheet" href="sc.css">
+</head>
+<body>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <div class="sidebar" id="sidebar">
+    <a href="sc.html">🏠 Home</a>
+    <a href="hobbies.html">🎯 Hobbies</a>
+    <a href="guestBook.html">📖 Guestbook</a>
+    <a href="books.html">📚 Books</a>
+    <a href="projects.html">🎓 My Projects</a>
+  </div>
+
+  <header>
+    <h1 class="fade-in">About Me & My Projects</h1>
+    <a href="sc.html" class="btn fade-in delay-1">← Back to Home</a>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Who Am I?</h2>
+      <div class="image-container">
+        <img src="images/your-photo.jpg" alt="My photo" width="200" height="200" loading="lazy">
+      </div>
+      <p>I'm passionate about tech, development, and learning new things.</p>
+    </section>
+
+    <section id="projects-gallery">
+      <h2>Project Gallery</h2>
+      <div class="project-grid">
+        <div class="project-card fade-in">
+          <img src="images/project1.jpg" alt="Project 1" width="400" height="300" loading="lazy">
+          <h3>Project Title 1</h3>
+          <p>Short description of the project.</p>
+        </div>
+        <div class="project-card fade-in delay-1">
+          <img src="images/project2.jpg" alt="Project 2" width="400" height="300" loading="lazy">
+          <h3>Project Title 2</h3>
+          <p>Another cool project I made.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year"></span> Your Name. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Menu toggle
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
+    }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const menuBtn = document.querySelector('.menu-btn');
+      if (!sidebar.contains(event.target) && event.target !== menuBtn) {
+        sidebar.style.width = '0';
+      }
+    });
+    
+    // Auto-update year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
