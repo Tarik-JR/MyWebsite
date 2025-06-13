@@ -10,7 +10,7 @@
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        /* Modern Overrides (add to sc.css) */
+
         :root {
             --primary: #2563eb;  /* Vibrant blue */
             --secondary: #1e40af;
@@ -34,7 +34,7 @@
             padding: 2rem;
         }
         
-        /* Modern Menu - Smaller version */
+
         .menu-btn {
             position: fixed;
             top: 1rem;
@@ -87,7 +87,7 @@
             background-color: #f0f4f8;
         }
         
-        /* Modern Sections */
+
         header {
             text-align: center;
             margin-bottom: 3rem;
@@ -157,7 +157,7 @@
             margin-top: 0.5rem;
         }
         
-        /* Modern Lists */
+
         ul {
             padding-left: 1.5rem;
         }
@@ -176,7 +176,7 @@
             margin-left: -1em;
         }
         
-        /* Responsive */
+
         @media (max-width: 768px) {
             .book-list {
                 grid-template-columns: 1fr;
@@ -196,7 +196,7 @@
     <!-- Modern Hamburger Menu -->
     <button class="menu-btn animate__animated animate__fadeIn" onclick="toggleMenu()">☰</button>
     <div class="sidebar" id="sidebar">
-    <a href="sc.html">🏠 Home</a>
+    <a href="main.html">🏠 Home</a>
     <a href="hobbies.html">🎯 Hobbies</a>
     <a href="guestBook.html">📖 Guestbook</a>
     <a href="books.html">📚 Books</a>
@@ -243,7 +243,7 @@
             </ul>
         </section>
 
-        <!-- Fitness Section -->
+
         <section class="hobby-section animate__animated animate__fadeInUp animate__delay-2s">
             <h2><span>💪</span> Physical Mastery</h2>
             <p>2024 Fitness Regimen:</p>
@@ -262,7 +262,7 @@
             sidebar.style.width = sidebar.style.width === "220px" ? "0" : "220px";  /* Narrower sidebar */
         }
         
-        // Close sidebar when clicking outside
+
         document.addEventListener('click', function(event) {
             const sidebar = document.getElementById('sidebar');
             const menuBtn = document.querySelector('.menu-btn');

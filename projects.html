@@ -9,7 +9,7 @@
 <body>
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
   <div class="sidebar" id="sidebar">
-    <a href="sc.html">🏠 Home</a>
+    <a href="main.html">🏠 Home</a>
     <a href="hobbies.html">🎯 Hobbies</a>
     <a href="guestBook.html">📖 Guestbook</a>
     <a href="books.html">📚 Books</a>
@@ -18,7 +18,7 @@
 
   <header>
     <h1 class="fade-in">About Me & My Projects</h1>
-    <a href="sc.html" class="btn fade-in delay-1">← Back to Home</a>
+    <a href="main.html" class="btn fade-in delay-1">← Back to Home</a>
   </header>
 
   <main>
@@ -58,7 +58,7 @@
       sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
     }
     
-    // Close menu when clicking outside
+
     document.addEventListener('click', function(event) {
       const sidebar = document.getElementById('sidebar');
       const menuBtn = document.querySelector('.menu-btn');

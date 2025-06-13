@@ -17,12 +17,12 @@
           <img src="images/FR.png" alt="Français" loading="lazy"/>
         </button>
       </div>
-  <!-- Improved Accessible Menu -->
+
   <button class="menu-btn" aria-label="Toggle navigation menu" onclick="toggleMenu()">☰</button>
 
-  <!-- Enhanced Sidebar Menu -->
-  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
-     <a href="sc.html">🏠 Home</a>
+
+   <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+     <a href="main.html">🏠 Home</a>
     <a href="hobbies.html">🎯 Hobbies</a>
     <a href="guestBook.html">📖 Guestbook</a>
     <a href="books.html">📚 Books</a>
@@ -60,7 +60,7 @@
   </footer>
 
   <script>
-    // Improved language switching
+    
     const translations = {
       en: {
         title: "Tarik Jabbour | Computer Science Student",
@@ -94,7 +94,7 @@
       aboutParagraphs[1].innerText = t.aboutDesc2;
     }
 
-    // Improved menu toggle with click-outside detection
+
     function toggleMenu() {
       const sidebar = document.getElementById("sidebar");
       sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
@@ -108,7 +108,7 @@
       }
     });
 
-    // Update copyright year automatically
+ 
     document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
 </body>

@@ -96,11 +96,11 @@
     </style>
 </head>
 <body>
-    <!-- Your existing menu -->
+
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
   <div class="sidebar" id="sidebar">
-    <a href="sc.html">🏠 Home</a>
+    <a href="main.html">🏠 Home</a>
     <a href="hobbies.html">🎯 Hobbies</a>
     <a href="guestBook.html">📖 Guestbook</a>
     <a href="books.html">📚 Books</a>
@@ -134,10 +134,10 @@
     </div>
 
     <script>
-        // Load entries when page loads
+
         document.addEventListener('DOMContentLoaded', loadEntries);
         
-        // Form submission
+
         document.getElementById('guestbookForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -150,7 +150,7 @@
             }
         });
         
-        // Menu toggle function
+
         function toggleMenu() {
             const sidebar = document.getElementById('sidebar');
             sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
